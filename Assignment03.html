@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyModule">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="../../scripts/angular.js"></script>
+
+</head>
+<body>
+
+    <h3>Sort the Session array by name using order by: sort order filter.</h3>
+    <script>
+        var module = angular.module("MyModule", []);
+
+        module.controller("MyController", function($scope) {
+            $scope.Books = [
+             { bookid: 1, bookname: 'Pro Angular', Publisher: 'APress', Price: 500.00 },
+               { bookid: 2, bookname: 'ASP.NET Complete Reference', Publisher: 'Tata MacGraw Hill', Price: 900.00 },
+               { bookid: 3, bookname: 'Pro C# 3.0', Publisher: 'APress', Price: 850.00 },
+               { bookid: 4, bookname: 'Angular JS Essentials', Publisher: 'Tata MacGraw Hill', Price: 900.00 },
+               { bookid: 5, bookname: 'Linux Complete Reference', Publisher: 'Tata MacGraw Hill', Price: 550.56 },
+               { bookid: 6, bookname: 'Pro WCF', Publisher: 'APress', Price: 650.00 },
+               { bookid: 7, bookname: 'ASP.NET 5.0 Professional', Publisher: 'WROX', Price: 750.20 },
+               { bookid: 8, bookname: 'ASP.NET MVC 4.0 Professional', Publisher: 'WROX', Price: 920.00 },
+               { bookid: 9, bookname: 'Java 8 Complete Reference', Publisher: 'Tata MacGraw Hill', Price: 540.00 },
+               { bookid: 10, bookname: 'Pro WPF 4.5', Publisher: 'APress', Price: 999.00 }
+            ];
+
+        });
+    </script>
+
+    <div ng-controller="MyController">
+        <table border="1">th>
+            <th>
+                Price
+            </th>
+            <thead>
+                <tr>
+                    <th>Book Id</th>
+                    <th>Book Name</th>
+                    <th>Publisher</>
+                </tr>
+            </thead>
+            <tr ng-repeat="b in Books | orderBy : ['bookname']">
+                <td>{{b.bookid}}</td>
+                <td>{{b.bookname}}</td>
+                <td>{{b.Publisher}}</td>
+                <td>{{b.Price}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
